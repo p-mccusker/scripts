@@ -71,7 +71,7 @@ def parse_application_list(is_test_env: bool) -> list[str]:
             for line in tempAppList1:
                 if len(line) > 3 and line[:2] == "[e":
                     tempAppList2.append(line)
-                    print("Adding package:", packageCatNameList[-1])
+                    print("Adding package:", tempAppList2[-1])
                     time.sleep(.01)
 
             
