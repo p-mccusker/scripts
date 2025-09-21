@@ -141,7 +141,7 @@ def create_failure_dir(dir: str, appName: str, processResult: subprocess.Complet
     
 
 if __name__ == "__main__":
-    DIRECTORY = "/home/peter/.local/share/world_lists/"
+    DIRECTORY = "/root/.local/share/world_lists/"
     IS_FIRST_RUN = True
     EMERGE_REBUILD_COMMAND="emerge -v --oneshot ="
     FEDORA_TEST_CMD="dnf repoquery --userinstalled --qf \"%{name}@\""
