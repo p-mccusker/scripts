@@ -69,7 +69,7 @@ def parse_application_list(is_test_env: bool) -> list[str]:
 
             # Remove non-package lines
             for line in tempAppList1:
-                if line[:2] == "[e":
+                if len(line) > 3 and line[:2] == "[e":
                     tempAppList2.append(line)
                     print("Adding package:", packageCatNameList[-1])
                     time.sleep(.01)
@@ -78,7 +78,7 @@ def parse_application_list(is_test_env: bool) -> list[str]:
             #Split so only package category and name are left
             packageCatNameList = []
             for line in tempAppList2:
-                packageCatNameList.append(line[14:].split(" ")[0])
+                packageCatNameList.append(line[15:].split(" ")[0])
                 print("Have package:", packageCatNameList[-1])
                 
 
