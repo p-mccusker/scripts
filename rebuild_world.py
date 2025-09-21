@@ -72,16 +72,12 @@ def parse_application_list(is_test_env: bool) -> list[str]:
             packageCatNameList = []
             for line in tempAppList2:
                 packageCatNameList.append(line[15:].split(" ")[1])
-                print("Have package:", packageCatNameList[-1])
-                time.sleep(.01)
                 
             # Strip repo from package name
             strippedPackageCatNameList = []
             for line in packageCatNameList:
-                appList.append(line[:line.find(":")])
-            
-            print("New output: ", tempAppList1)
-
+                if len(line) > 1:
+                    appList.append(line[:line.find(":")])
         
         return appList
 
