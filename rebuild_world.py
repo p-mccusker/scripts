@@ -202,6 +202,7 @@ if __name__ == "__main__":
             
             for i in range(len(currentEmergeList)):
                 CURR_EMERGE_REBUILD_COMMAND = EMERGE_REBUILD_COMMAND + currentEmergeList[i]
+                print("Emerging app #{0}/{1}: {2}".format(i+1, len(currentEmergeList), currentEmergeList[i]))
                 appEmergeResult = subprocess.run(CURR_EMERGE_REBUILD_COMMAND.split(), capture_output=True, text=True, shell=False)
 
                 if appEmergeResult.returncode == 0:
