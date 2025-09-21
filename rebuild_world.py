@@ -60,21 +60,27 @@ def parse_application_list(is_test_env: bool) -> list[str]:
                 if (len(app) >= 1):
                     appList.append(app[2:])
         else:
-            tempAppList1 = appListResult.stdout.split("[")
+            tempAppList1 = appListResult.stdout.split("\n")
             tempAppList2 = []
-            print("Cleaning up output: ", tempAppList1)
+            #Debug
+            for line in tempAppList1:
+                print("Cleaning up output for package: ", line)
+                time.sleep(.01)
 
             # Remove non-package lines
             for line in tempAppList1:
-                if line[:2] == "eb":
+                if line[:2] == "[e":
                     tempAppList2.append(line)
+                    print("Adding package:", packageCatNameList[-1])
+                    time.sleep(.01)
+
             
             #Split so only package category and name are left
             packageCatNameList = []
             for line in tempAppList2:
                 packageCatNameList.append(line[14:].split(" ")[0])
                 print("Have package:", packageCatNameList[-1])
-                time.sleep(.2)
+                
 
             # Strip repo from package name
             strippedPackageCatNameList = []
